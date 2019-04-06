@@ -1,0 +1,37 @@
+{
+  "name":"toulen/liudian_admin",
+  "description": "Liudian Admin",
+  "keywords": ["framework", "laravel", "admin"],
+  "license": "MIT",
+  "require": {
+    "php": "^7.1.3",
+    "laravel/framework": "5.8.*",
+    "laravel/tinker": "^1.0",
+    "baum/baum": "^2.0",
+    "toulen/tcaptcha": "^1.3"
+  },
+  "autoload": {
+    "classmap": [
+      "database/seeds"
+    ],
+    "psr-4": {
+      "Liudian\\Admin\\": "src/"
+    },
+    "files": [
+
+    ]
+  },
+  "extra": {
+    "laravel" : {
+      "providers" : [
+        "Liudian\\Admin\\Providers\\LiudianAdminServiceProvider",
+        "Liudian\\Admin\\Providers\\RouteServiceProvider::class",
+        "Baum\\Providers\\BaumServiceProvider",
+        "Liudian\\Admin\\Providers\\EventServiceProvider"
+      ],
+      "aliases":{
+        "AdminAuth":"Liudian\\Admin\\Facades\\AdminAuth"
+      }
+    }
+  }
+}
