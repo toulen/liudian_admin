@@ -14,7 +14,7 @@ class AdminUsersTableSeeder extends Seeder
         //
         \Liudian\Admin\Model\AdminUser::create([
             'username' => 'admin',
-            'password' => bcrypt('123456'),
+            'password' => '123456',
             'nickname' => '超级管理员',
             'status' => 1,
             'supper_admin' => 1
