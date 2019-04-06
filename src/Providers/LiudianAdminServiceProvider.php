@@ -31,7 +31,8 @@ class LiudianAdminServiceProvider extends ServiceProvider
         if($this->app->runningInConsole()){
             $this->publishes([
                 __DIR__ . '/../../config/liudian_admin.php' => config_path('liudian_admin.php'),
-                __DIR__ . '/../../public/admin' => public_path('admin')
+                __DIR__ . '/../../public/admin' => public_path('admin'),
+                __DIR__ . '/../../database/seeds' => database_path('seeds')
             ]);
         }
     }
