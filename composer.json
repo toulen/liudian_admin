@@ -25,7 +25,7 @@
     "laravel" : {
       "providers" : [
         "Liudian\\Admin\\Providers\\LiudianAdminServiceProvider",
-        "Liudian\\Admin\\Providers\\RouteServiceProvider::class",
+        "Liudian\\Admin\\Providers\\RouteServiceProvider",
         "Baum\\Providers\\BaumServiceProvider",
         "Liudian\\Admin\\Providers\\EventServiceProvider"
       ],
