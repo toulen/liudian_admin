@@ -22,7 +22,7 @@ class CreateRbacTables extends Migration
             $table->integer('left_key')->default(0);
             $table->integer('right_key')->default(0);
             $table->integer('depth')->default(0);
-            $table->integer('icon')->default('navicon');
+            $table->string('icon')->default('navicon');
             $table->tinyInteger('status')->default(1);
             $table->timestamps();
         });
