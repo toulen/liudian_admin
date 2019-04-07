@@ -109,11 +109,13 @@
                         <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i> </a>
                         <ul class="nav navbar-top-links" style="padding-left: 50px">
                             @foreach($firstDepthNav as $nav)
+                                @if(\AdminAuth::user()->can($nav->id))
                             <li class="{{in_array($nav->id, $pageActive) ? 'active' : ''}}">
                                 <a class="" href="{{route($nav->route_name)}}">
                                     {{$nav->name}}
                                 </a>
                             </li>
+                                @endif
                             @endforeach
                         </ul>
                     </div>
