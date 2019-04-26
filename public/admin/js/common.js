@@ -97,6 +97,12 @@ $(function (){
                 $(this).parents('.form-group').find('label').append('*');
             }
         })
+        $('.checkColorForm').find('textarea').each(function (){
+            if($(this)[0].hasAttribute('required')){
+                $(this).parents('.form-group').find('label').css('color', 'red');
+                $(this).parents('.form-group').find('label').append('*');
+            }
+        })
     }
 
     if($('#createdForm').length > 0){

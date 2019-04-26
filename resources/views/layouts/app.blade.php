@@ -122,57 +122,57 @@
                     <ul class="nav navbar-top-links pull-right">
                         <li>
                         </li>
-                        <li class="dropdown">
-                            <a class="dropdown-toggle count-info" data-toggle="dropdown" href="#">
-                                <i class="fa fa-bell"></i>
+                        {{--<li class="dropdown">--}}
+                            {{--<a class="dropdown-toggle count-info" data-toggle="dropdown" href="#">--}}
+                                {{--<i class="fa fa-bell"></i>--}}
                                 {{--<span class="label label-warning">16</span>--}}
-                            </a>
-                            <ul class="dropdown-menu dropdown-messages">
-                                <li>
-                                    <div class="dropdown-messages-box">
-                                        <a class="dropdown-item float-left" href="profile.html">
-                                        </a>
-                                        <div class="media-body">
-                                            <small class="float-right">46h ago</small>
-                                            <strong>Mike Loreipsum</strong> started following <strong>Monica Smith</strong>. <br>
-                                            <small class="text-muted">3 days ago at 7:58 pm - 10.06.2014</small>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="dropdown-divider"></li>
-                                <li>
-                                    <div class="dropdown-messages-box">
-                                        <a class="dropdown-item float-left" href="profile.html">
-                                        </a>
-                                        <div class="media-body ">
-                                            <small class="float-right text-navy">5h ago</small>
-                                            <strong>Chris Johnatan Overtunk</strong> started following <strong>Monica Smith</strong>. <br>
-                                            <small class="text-muted">Yesterday 1:21 pm - 11.06.2014</small>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="dropdown-divider"></li>
-                                <li>
-                                    <div class="dropdown-messages-box">
-                                        <a class="dropdown-item float-left" href="profile.html">
-                                        </a>
-                                        <div class="media-body ">
-                                            <small class="float-right">23h ago</small>
-                                            <strong>Monica Smith</strong> love <strong>Kim Smith</strong>. <br>
-                                            <small class="text-muted">2 days ago at 2:30 am - 11.06.2014</small>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="dropdown-divider"></li>
-                                <li>
-                                    <div class="text-center link-block">
-                                        <a href="mailbox.html" class="dropdown-item">
-                                            <i class="fa fa-envelope"></i> <strong>Read All Messages</strong>
-                                        </a>
-                                    </div>
-                                </li>
-                            </ul>
-                        </li>
+                            {{--</a>--}}
+                            {{--<ul class="dropdown-menu dropdown-messages">--}}
+                                {{--<li>--}}
+                                    {{--<div class="dropdown-messages-box">--}}
+                                        {{--<a class="dropdown-item float-left" href="profile.html">--}}
+                                        {{--</a>--}}
+                                        {{--<div class="media-body">--}}
+                                            {{--<small class="float-right">46h ago</small>--}}
+                                            {{--<strong>Mike Loreipsum</strong> started following <strong>Monica Smith</strong>. <br>--}}
+                                            {{--<small class="text-muted">3 days ago at 7:58 pm - 10.06.2014</small>--}}
+                                        {{--</div>--}}
+                                    {{--</div>--}}
+                                {{--</li>--}}
+                                {{--<li class="dropdown-divider"></li>--}}
+                                {{--<li>--}}
+                                    {{--<div class="dropdown-messages-box">--}}
+                                        {{--<a class="dropdown-item float-left" href="profile.html">--}}
+                                        {{--</a>--}}
+                                        {{--<div class="media-body ">--}}
+                                            {{--<small class="float-right text-navy">5h ago</small>--}}
+                                            {{--<strong>Chris Johnatan Overtunk</strong> started following <strong>Monica Smith</strong>. <br>--}}
+                                            {{--<small class="text-muted">Yesterday 1:21 pm - 11.06.2014</small>--}}
+                                        {{--</div>--}}
+                                    {{--</div>--}}
+                                {{--</li>--}}
+                                {{--<li class="dropdown-divider"></li>--}}
+                                {{--<li>--}}
+                                    {{--<div class="dropdown-messages-box">--}}
+                                        {{--<a class="dropdown-item float-left" href="profile.html">--}}
+                                        {{--</a>--}}
+                                        {{--<div class="media-body ">--}}
+                                            {{--<small class="float-right">23h ago</small>--}}
+                                            {{--<strong>Monica Smith</strong> love <strong>Kim Smith</strong>. <br>--}}
+                                            {{--<small class="text-muted">2 days ago at 2:30 am - 11.06.2014</small>--}}
+                                        {{--</div>--}}
+                                    {{--</div>--}}
+                                {{--</li>--}}
+                                {{--<li class="dropdown-divider"></li>--}}
+                                {{--<li>--}}
+                                    {{--<div class="text-center link-block">--}}
+                                        {{--<a href="mailbox.html" class="dropdown-item">--}}
+                                            {{--<i class="fa fa-envelope"></i> <strong>Read All Messages</strong>--}}
+                                        {{--</a>--}}
+                                    {{--</div>--}}
+                                {{--</li>--}}
+                            {{--</ul>--}}
+                        {{--</li>--}}
 
                         <li>
                             <form method="post" action="{{route('admin_logout')}}">
@@ -192,6 +192,7 @@
         <div class="wrapper wrapper-content">
             <div class="row wrapper border-bottom page-heading">
                     <div class="col-lg-12">
+                        @if(isset($layout) && $layout)
                         <h2 class="pull-left">{{$pageTitle}}</h2>
                         <ol class="breadcrumb pull-right" style="margin-top: 20px; background: #f3f3f4">
                             <li class="breadcrumb-item">
@@ -203,6 +204,7 @@
                                 </li>
                             @endforeach
                         </ol>
+                        @endif
                     </div>
                 </div>
 
