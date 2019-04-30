@@ -45,7 +45,7 @@
     <script src="{{asset('admin/js/jquery-3.1.1.min.js')}}"></script>
 </head>
 
-<body class="fixed-sidebar no-skin-config full-height-layout {{ isset($layout) && $layout ? 'mini-navbar' : '' }}">
+<body class="fixed-sidebar no-skin-config full-height-layout">
 
 <div id="wrapper">
 
