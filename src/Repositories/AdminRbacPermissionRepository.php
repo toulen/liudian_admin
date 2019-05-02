@@ -110,9 +110,9 @@ class AdminRbacPermissionRepository
 
         $firstDepth = $firstDepth->first();
 
-        $treePermissions = $permissions->where('left_key', '>', $firstDepth->left_key)->where('right_key', '<', $firstDepth->right_key)->where('nav_show', '=', 1)->where('depth', '!=', 0);
+        $treePermissions = $permissions->where('left_key', '>', $firstDepth->left_key)->where('right_key', '<', $firstDepth->right_key)->where('nav_show', '=', 1)->where('depth', '!=', 0)->all();
 
-        return $treePermissions;
+        return array_values($treePermissions);
     }
 
     // CURD
