@@ -11,6 +11,7 @@ use Liudian\Admin\Model\AdminRbacPermission;
 use Liudian\Admin\Model\AdminRbacRole;
 use Liudian\Admin\Model\AdminRbacUserRole;
 use Liudian\Admin\Model\AdminUser;
+use Liudian\Admin\Repositories\AdminRbacPermissionRepository;
 use Liudian\Admin\Repositories\AdminUserRepository;
 
 class AccountController extends Controller
@@ -29,6 +30,20 @@ class AccountController extends Controller
     public function __construct(AdminUserRepository $adminUserRepository){
 
         $this->modelRepository = $adminUserRepository;
+    }
+
+    public function beforeCreate($request){
+
+        $permissions = (new AdminRbacPermissionRepository(new AdminRbacPermission()))->getPermissions();
+
+        $this->data['permissions'] = $permissions;
+    }
+
+    public function beforeEdit($id, $request){
+
+        $permissions = (new AdminRbacPermissionRepository(new AdminRbacPermission()))->getPermissions();
+
+        $this->data['permissions'] = $permissions;
     }
 
     /**

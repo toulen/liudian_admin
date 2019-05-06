@@ -5,6 +5,9 @@ return [
     // 路由前缀
     'route_prefix' => 'admin',
 
+    // 如果要修改首页内容，请自行创建路由，并在这里修改路由地址！
+    'admin_index_route' => 'admin_index',
+
     'captcha' => [
         'type' => 'normal', // operation是简答的计算
         // 公用配置

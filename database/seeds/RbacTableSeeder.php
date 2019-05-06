@@ -14,14 +14,14 @@ class RbacTableSeeder extends Seeder
         // 添加权限列表
         $root = \Liudian\Admin\Model\AdminRbacPermission::create([
             'name' => '系统设置',
-            'route_name' => 'admin_index',
+            'route_name' => config('liudian_admin.admin_index_route'),
             'nav_show' => 1
         ]);
         $root->makeRoot();
 
         $adminIndexObj = \Liudian\Admin\Model\AdminRbacPermission::create([
             'name' => '管理首页',
-            'route_name' => 'admin_index',
+            'route_name' => config('liudian_admin.admin_index_route'),
             'nav_show' => 1
         ]);
         $adminIndexObj->makeChildOf($root);

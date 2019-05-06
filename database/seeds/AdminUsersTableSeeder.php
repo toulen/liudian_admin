@@ -17,7 +17,8 @@ class AdminUsersTableSeeder extends Seeder
             'password' => '123456',
             'nickname' => '超级管理员',
             'status' => 1,
-            'supper_admin' => 1
+            'supper_admin' => 1,
+            'default_route' => config('liudian_admin.admin_index_route')
         ]);
 
         echo "超级管理员登录账号：admin 密码：123456\n";

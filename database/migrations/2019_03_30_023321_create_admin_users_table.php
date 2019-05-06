@@ -24,6 +24,7 @@ class CreateAdminUsersTable extends Migration
             $table->string('remember_token')->nullable();
             $table->boolean('status')->default(true);
             $table->boolean('supper_admin')->default(false);
+            $table->string('default_route')->default('admin_index');
             $table->timestamps();
         });
     }

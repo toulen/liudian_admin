@@ -32,7 +32,7 @@ class AuthController extends Controller
         // 已经登录，去首页
         if(AdminAuth::user()){
 
-            return redirect()->route('admin_index');
+            return redirect()->route(AdminAuth::user()->default_route ?: config('liudian_admin.admin_index_route'));
         }
 
         if($request->method() == 'POST') {
@@ -43,10 +43,14 @@ class AuthController extends Controller
                 return self::returnJson($loginRes);
             }
 
+            $adminUser = $loginRes['data'];
+
             // 成功，判断是否记住了密码
             $rememberMe = Input::get('remember', 0);
 
-            $response = self::returnOkJson();
+            $response = self::returnOkJson([
+                'url' => $adminUser->default_route ? route($adminUser->default_route) : route('admin_index')
+            ]);
 
             if($rememberMe){
                 $response = $response->withCookie(Cookie::make('liudian_admin_admin_user_remember_token', $loginRes['data']->remember_token, 60 * 24 * 7));

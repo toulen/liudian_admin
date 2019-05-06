@@ -88,7 +88,13 @@
             var _data = $('.loginForm').serializeJSON()
 
             postRequest('{{route('admin_login')}}', _data, true, function (res){
-                window.location.href = '{{ isset($prev_url) && $prev_url ? $prev_url : route('admin_index') }}'
+                var url = '{{ isset($prev_url) && $prev_url ? $prev_url : "" }}';
+
+                if(!url){
+                    url = res.data.url;
+                }
+                window.location.href = url
+
             }, function (res){
                 updateCaptcha($('.captcha-image'));
             })

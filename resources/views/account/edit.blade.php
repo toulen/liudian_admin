@@ -42,6 +42,17 @@
                                 </select>
                             </div>
                         </div>
+                        <div class="form-group  row"><label class="col-sm-2 col-form-label">登录后跳转页面</label>
+                            <div class="col-sm-10">
+                                <select class="form-control" name="param[default_route]">
+                                    @foreach($permissions as $permission)
+                                        @if($permission->nav_show)
+                                            <option value="{{$permission->route_name}}" {!! $permission->route_name == $data->default_route ? 'selected' : '' !!}>@for($i = 0; $i < $permission->depth; $i++) &nbsp; &nbsp; &nbsp;@endfor{{$permission->name}}</option>
+                                        @endif
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
                         <div class="hr-line-dashed"></div>
                         <div class="form-group  row"><label class="col-sm-2 col-form-label">头像</label>
                             <div class="col-sm-10">
