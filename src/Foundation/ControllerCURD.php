@@ -113,6 +113,35 @@ trait ControllerCURD
     }
 
     /**
+     * 查看数据
+     * @param $id
+     * @param Request $request
+     * @return mixed
+     */
+    public function show($id, Request $request){
+
+        if(!$data = $this->modelRepository->findById($id)){
+            return self::returnErrorByMethod($request, '未找到数据！');
+        }
+
+        $this->data['data'] = $data;
+
+
+        $this->data['pageTitle'] = '查看' . $this->pageConfig['pageTitle'];
+
+        $this->data['pageBreadcrumb'][] = [
+            'name' => $this->pageConfig['pageTitle'] . '列表',
+            'link' => route($this->pageConfig['indexRoute'])
+        ];
+        $this->data['pageBreadcrumb'][] = [
+            'name' => '查看' . $this->pageConfig['pageTitle'],
+            'link' =>''
+        ];
+
+        return $this->render($this->pageConfig['viewPrefix'] . '.show');
+    }
+
+    /**
      * 删除
      * @param $id
      * @param Request $request
