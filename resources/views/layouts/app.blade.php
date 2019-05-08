@@ -104,6 +104,7 @@
         </nav>
     @endif
 
+    @php $pageActiveRoute = '' @endphp
     <div id="page-wrapper" class="gray-bg" style="height: auto">
         @if(isset($layout) && $layout)
             <div class="row border-bottom">
@@ -114,6 +115,10 @@
                             @foreach($firstDepthNav as $nav)
                                 @if(\AdminAuth::user()->can($nav->id))
                             <li class="{{in_array($nav->id, $pageActive) ? 'active' : ''}}">
+                                @php
+                                    if(in_array($nav->id, $pageActive))
+                                    $pageActiveRoute = $nav->route_name
+                                @endphp
                                 <a class="" href="{{route($nav->route_name)}}">
                                     {{$nav->name}}
                                 </a>
@@ -199,7 +204,7 @@
                         <h2 class="pull-left">{{$pageTitle}}</h2>
                         <ol class="breadcrumb pull-right" style="margin-top: 20px; background: #f3f3f4">
                             <li class="breadcrumb-item">
-                                <a href="{{route('admin_index')}}">首页</a>
+                                <a href="{{route($pageActiveRoute ?: 'admin_index')}}">首页</a>
                             </li>
                             @foreach($pageBreadcrumb as $key => $breadcrumb)
                                 <li class="breadcrumb-item {!! $key == count($pageBreadcrumb) -1 ? 'active' : '' !!}">
