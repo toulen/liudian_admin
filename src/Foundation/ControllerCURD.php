@@ -17,6 +17,8 @@ trait ControllerCURD
 
     public function beforeEdit($id, $request){}
 
+    public function beforeShow($id, $request){}
+
 
     /**
      * 首页数据
@@ -137,6 +139,8 @@ trait ControllerCURD
             'name' => '查看' . $this->pageConfig['pageTitle'],
             'link' =>''
         ];
+
+        $this->beforeShow($id, $request);
 
         return $this->render($this->pageConfig['viewPrefix'] . '.show');
     }
