@@ -32,7 +32,7 @@ class AuthController extends Controller
         // 已经登录，去首页
         if(AdminAuth::user()){
 
-            return redirect()->route(AdminAuth::user()->default_route ?: config('liudian_admin.admin_index_route'));
+            return redirect()->route(AdminAuth::user()->default_route ?: 'admin_index');
         }
 
         if($request->method() == 'POST') {

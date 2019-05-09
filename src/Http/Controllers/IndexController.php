@@ -12,13 +12,6 @@ class IndexController extends Controller
 
     public function index(){
 
-        $configIndex = config('liudian_admin.admin_index_route');
-
-        if($configIndex != 'admin_index'){
-            dd($configIndex);
-            return redirect(route($configIndex));
-        }
-
         $this->data['pageTitle'] = '管理首页';
 
         return $this->render('admin::index.index');

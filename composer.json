@@ -15,10 +15,11 @@
       "database/seeds"
     ],
     "psr-4": {
-      "Liudian\\Admin\\": "src/"
+      "Liudian\\Admin\\": "src/",
+      "Ext\\Liudian\\Admin\\": "../../../liudian/admin"
     },
     "files": [
-
+      "src/function.php"
     ]
   },
   "extra": {
