@@ -7,7 +7,7 @@
     "php": "^7.1.3",
     "laravel/framework": "5.8.*",
     "laravel/tinker": "^1.0",
-    "baum/baum": "^2.0",
+    "baum/baum": "^1.1",
     "toulen/tcaptcha": "^1.3"
   },
   "autoload": {
@@ -27,7 +27,7 @@
       "providers" : [
         "Liudian\\Admin\\Providers\\LiudianAdminServiceProvider",
         "Liudian\\Admin\\Providers\\RouteServiceProvider",
-        "Baum\\BaumServiceProvider",
+        "Baum\\Providers\\BaumServiceProvider",
         "Liudian\\Admin\\Providers\\EventServiceProvider"
       ],
       "aliases":{
