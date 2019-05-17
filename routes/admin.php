@@ -59,7 +59,6 @@ Route::group(['prefix' => config('liudian_admin.route_prefix'), 'as' => 'admin_'
             Route::match(['get', 'post'], 'create', $controller . '@create')->name('create');
             Route::match(['get', 'post'], 'edit/{id}', $controller . '@edit')->name('edit');
             Route::post('delete/{id}', $controller . '@delete')->name('delete');
-
             Route::post('move/{id}', $controller . '@move')->name('move');
         });
     });

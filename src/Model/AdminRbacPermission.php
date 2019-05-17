@@ -1,7 +1,8 @@
 <?php
 namespace Liudian\Admin\Model;
 
-use Baum\Node;
+
+use Liudian\Admin\Baum\Node;
 
 class AdminRbacPermission extends Node
 {
