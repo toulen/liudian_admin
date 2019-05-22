@@ -11,6 +11,7 @@ Route::group(['prefix' => config('liudian_admin.route_prefix'), 'as' => 'admin_'
         Route::get('captcha', $controller . '@captcha')->name('captcha');
         Route::post('ajax/upload', $controller . '@ajaxUpload')->name('ajax_upload');
         Route::get('no/permission', $controller . '@noPermission')->name('no_permission');
+        Route::post('get/area/children', $controller . '@getAreaChildren')->name('get_area_children');
     });
 
     Route::group([], function (){

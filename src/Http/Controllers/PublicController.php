@@ -4,6 +4,7 @@ namespace Liudian\Admin\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Storage;
+use Liudian\Admin\Facades\ChinaArea;
 use Liudian\Admin\Foundation\ControllerFoundation;
 use Liudian\Admin\Helper\CommonReturn;
 use Tcaptcha\Tcaptcha;
@@ -55,5 +56,17 @@ class PublicController extends Controller
         $this->data['pageTitle'] = '暂无权限访问！';
 
         return $this->render('admin::error.no_permission');
+    }
+
+    public function getAreaChildren(){
+        $id = Input::get('id', 0);
+
+        if(!$id){
+            return self::returnOkJson();
+        }
+
+        $lists = ChinaArea::getChildren($id);
+
+        return self::returnOkJson($lists);
     }
 }
