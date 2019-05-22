@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 class ChinaArea extends Model
 {
 
-    protected $timestamps = false;
+    public $timestamps = false;
 
     protected $table = 'china_area';
 
