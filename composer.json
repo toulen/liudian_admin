@@ -31,7 +31,8 @@
         "Liudian\\Admin\\Providers\\EventServiceProvider"
       ],
       "aliases":{
-        "AdminAuth":"Liudian\\Admin\\Facades\\AdminAuth"
+        "AdminAuth":"Liudian\\Admin\\Facades\\AdminAuth",
+        "ChinaArea":"Liudian\\Admin\\Facades\\ChinaArea"
       }
     }
   }

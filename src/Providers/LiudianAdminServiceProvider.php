@@ -4,6 +4,7 @@ namespace Liudian\Admin\Providers;
 use Illuminate\Support\ServiceProvider;
 use Liudian\Admin\Http\Middleware\AdminAuth;
 use Liudian\Admin\Logic\AdminAuthLogic;
+use Liudian\Admin\Logic\ChinaAreaLogic;
 use Liudian\Admin\Repositories\AdminRbacPermissionRepository;
 
 class LiudianAdminServiceProvider extends ServiceProvider
@@ -19,6 +20,7 @@ class LiudianAdminServiceProvider extends ServiceProvider
 
     public function register(){
         $this->app->singleton('admin_auth', AdminAuthLogic::class);
+        $this->app->singleton('china_area', ChinaAreaLogic::class);
         $this->app->singleton('rbac_permission', AdminRbacPermissionRepository::class);
         $this->registerRouteMiddleware();
     }
