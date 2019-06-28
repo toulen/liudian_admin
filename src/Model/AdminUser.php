@@ -23,4 +23,8 @@ class AdminUser extends Model
     public function roleIds(){
         return $this->hasMany(AdminRbacUserRole::class, 'user_id', 'id');
     }
+
+    public function roles(){
+        return $this->belongsToMany(AdminRbacRole::class, 'admin_rbac_user_roles', 'user_id', 'role_id');
+    }
 }

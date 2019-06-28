@@ -40,6 +40,14 @@
             background: #f9f9f9!important;
         }
     </style>
+
+    @if(!isset($layout) || !$layout)
+        <style>
+            .wrapper-content{
+                padding: 0 0 40px 0!important;
+            }
+        </style>
+    @endif
     @yield('css')
 
     <script src="{{asset('admin/js/jquery-3.1.1.min.js')}}"></script>

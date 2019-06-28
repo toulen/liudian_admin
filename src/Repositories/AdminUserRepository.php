@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Validator;
 use Liudian\Admin\Events\AdminLog;
 use Liudian\Admin\Facades\AdminAuth;
 use Liudian\Admin\Helper\CommonReturn;
+use Liudian\Admin\Model\AdminRbacRole;
 use Liudian\Admin\Model\AdminUser;
 use Liudian\Admin\Model\AdminUserLoginLog;
 use Tcaptcha\Tcaptcha;
@@ -129,6 +130,11 @@ class AdminUserRepository
         AdminAuth::login($adminUser);
 
         $this->cleanErrorTime();
+
+        // 更新权限信息
+        foreach ($adminUser->roles as $role){
+            (new AdminRbacRoleRepository(new AdminRbacRole()))->generatePermissionCache($role);
+        }
 
         return self::returnOkArr($adminUser);
     }
