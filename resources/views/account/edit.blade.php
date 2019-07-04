@@ -17,7 +17,7 @@
         <div class="col-lg-12">
             <div class="ibox">
                 <div class="ibox-content">
-                    <form method="post" class="checkColorForm theForm" id="editForm" data-index="{{route('admin_account_index')}}">
+                    <form method="post" class="checkColorForm theForm" id="editForm" data-index="{{route($redirectRoute)}}">
                         <div class="form-group  row"><label class="col-sm-2 col-form-label">登录账号</label>
                             <div class="col-sm-10">
                                 <label class="col-form-label">{{$data->username}}</label>

@@ -4,6 +4,7 @@ namespace Liudian\Admin\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 use Liudian\Admin\Events\AdminLog;
+use Liudian\Admin\Facades\AdminAuth;
 use Liudian\Admin\Foundation\ControllerCURD;
 use Liudian\Admin\Foundation\ControllerFoundation;
 use Liudian\Admin\Helper\CommonReturn;
@@ -44,6 +45,14 @@ class AccountController extends Controller
         $permissions = (new AdminRbacPermissionRepository(new AdminRbacPermission()))->getPermissions();
 
         $this->data['permissions'] = $permissions;
+
+        // 当前管理员的角色
+        $redirectRoute = $this->pageConfig['indexRoute'];
+        if(AdminAuth::user()->id == $id){
+            $redirectRoute = AdminAuth::user()->default_route;
+        }
+
+        $this->data['redirectRoute'] = $redirectRoute;
     }
 
     /**
