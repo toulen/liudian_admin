@@ -8,7 +8,8 @@
     "laravel/framework": "5.8.*",
     "laravel/tinker": "^1.0",
     "baum/baum": "^1.1",
-    "toulen/tcaptcha": "^1.3"
+    "toulen/tcaptcha": "^1.3",
+    "toulen/liudian_upload": "^1.0.0"
   },
   "autoload": {
     "classmap": [
