@@ -1,6 +1,7 @@
 <?php
 namespace Liudian\Admin\Http\Controllers;
 
+use Liudian\Admin\Facades\AdminAuth;
 use Liudian\Admin\Foundation\ControllerFoundation;
 use Liudian\Admin\Model\AdminRbacPermission;
 use Liudian\Admin\Model\AdminRbacRolePermission;

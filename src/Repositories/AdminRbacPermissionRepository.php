@@ -32,6 +32,13 @@ class AdminRbacPermissionRepository
 
             $permissions = $this->adminRbacPermission->orderBy('left_key')->get();
 
+            foreach ($permissions as &$permission){
+
+                $routeName = explode(',', $permission->route_name);
+
+                $permission->simple_route_name = $routeName[0];
+            }
+
             Cache::put('admin_rbac_permissions', $permissions, 60);
         }
 
@@ -66,7 +73,7 @@ class AdminRbacPermissionRepository
 
         $currentRoute = Route::currentRouteName();
 
-        $nowPermission = $permissions->where('route_name', '=', $currentRoute);
+        $nowPermission = $permissions->where('simple_route_name', '=', $currentRoute);
 
         $nowPermission = $nowPermission->pop();
 
@@ -97,7 +104,7 @@ class AdminRbacPermissionRepository
 
         $currentRoute = Route::currentRouteName();
 
-        $nowPermission = $permissions->where('route_name', '=', $currentRoute);
+        $nowPermission = $permissions->where('simple_route_name', '=', $currentRoute);
 
         $nowPermission = $nowPermission->pop();
 

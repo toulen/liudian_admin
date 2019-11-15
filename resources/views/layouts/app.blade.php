@@ -86,7 +86,8 @@
                         @php $next = isset($leftNavs[$key + 1]) ? $leftNavs[$key + 1] : null @endphp
                         @if(\AdminAuth::user()->can($nav->id))
                             <li {!! in_array($nav->id, $pageActive) ? 'class="active"' : '' !!}>
-                                <a href="{{$nav->route_name ? route($nav->route_name) : ''}}" {{$nav->left_key != $nav->right_key - 1 ? 'aria-expanded="false"' : ''}}>@if($nav->depth == 1)<i class="fa fa-{{$nav->icon}}"></i>@endif{{$nav->name}}
+                                @php $routeName = $nav->route_name ? explode(',', $nav->route_name) : [''] @endphp
+                                <a href="{{$routeName[0] ? route(array_shift($routeName), $routeName) : ''}}" {{$nav->left_key != $nav->right_key - 1 ? 'aria-expanded="false"' : ''}}>@if($nav->depth == 1)<i class="fa fa-{{$nav->icon}}"></i>@endif{{$nav->name}}
                                     @if($next && $next->parent_id == $nav->id)
                                     <span class="fa arrow"></span>
                                     @endif
@@ -124,10 +125,12 @@
                                 @if(\AdminAuth::user()->can($nav->id))
                             <li class="{{in_array($nav->id, $pageActive) ? 'active' : ''}}">
                                 @php
-                                    if(in_array($nav->id, $pageActive))
-                                    $pageActiveRoute = $nav->route_name
+                                    if(in_array($nav->id, $pageActive)){
+                                        $pageActiveRoute = $nav->route_name;
+                                    }
+                                    $routeName = $nav->route_name ? explode(',', $nav->route_name) : [];
                                 @endphp
-                                <a class="" href="{{route($nav->route_name)}}">
+                                <a class="" href="{{$routeName[0] ? route(array_shift($routeName), $routeName) : ''}}">
                                     {{$nav->name}}
                                 </a>
                             </li>

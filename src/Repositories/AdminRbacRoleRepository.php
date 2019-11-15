@@ -150,11 +150,18 @@ class AdminRbacRoleRepository
      */
     public function generatePermissionCache($role){
 
-        $rolePermissions = $role->permissions->pluck('route_name', 'id');
+        $rolePermissions = $role->permissions->pluck('route_name', 'id')->toArray();
+
+        foreach ($rolePermissions as &$permission){
+
+            $permission = explode(',', $permission);
+
+            $permission = $permission[0];
+        }
 
         $allRolePermissions = Cache::get('admin_user_role_permissions', []);
 
-        $allRolePermissions[$role->id] = $rolePermissions;
+        $allRolePermissions[$role->id] = collect($rolePermissions);
 
         Cache::forever('admin_user_role_permissions', $allRolePermissions);
     }
